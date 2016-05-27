@@ -6,6 +6,16 @@
     <link href="//fonts.googleapis.com/css?family=Lemon" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="//djangogirlstaipei.github.io/assets/css/style.css" rel="stylesheet" type="text/css">
+    <style>
+        .author{
+            font-size: 13px;
+            color: #000;
+            margin-bottom: .5em;
+        }
+        .author a{
+            color: #69f;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
@@ -17,6 +27,9 @@
         <div class="post-heading">
             <h1 class="title"><a href="{% url 'post_detail' id=post.id %}">{{ post.title }}</a>
             </h1>
+            <div class="author">
+                By <a href="mailto:{{post.author.email}}">{{post.author.name}}</a>
+            </div>
             <div class="date">{{ post.created_at|date:'Y / m / d' }}</div>
         </div>
         <div class="location">
